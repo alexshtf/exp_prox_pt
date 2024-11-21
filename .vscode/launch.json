@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "numpy prox_op tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "tests/np.py",
+                "tests/torch.py"
+            ]
+        }
+    ]
+}
