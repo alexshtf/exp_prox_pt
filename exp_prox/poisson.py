@@ -7,5 +7,5 @@ def poisson_params(
         label: Union[ArrayLike, float],
         reg_coef: Union[ArrayLike, float]=0.):
     theta = features
-    phi = -label * features
+    phi = -label[...,None] * features
     return step_size, theta, phi, 0, reg_coef
