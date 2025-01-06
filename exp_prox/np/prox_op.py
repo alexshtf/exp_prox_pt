@@ -8,7 +8,8 @@ def prox_op(w: ArrayLike,
             theta: ArrayLike,
             phi: ArrayLike,
             b: Union[ArrayLike, float],
-            alpha: Union[ArrayLike, float]):
+            alpha: Union[ArrayLike, float],
+            return_dual=False):
     w = np.asarray(w)
     theta = np.asarray(theta)
     phi = np.asarray(phi)
@@ -30,4 +31,8 @@ def prox_op(w: ArrayLike,
     s = wrightomega(delta + np.log(gamma)) / gamma
 
     # compute the result
-    return (w - eta * s * theta - eta * phi) / common_denom
+    solution = (w - eta * s * theta - eta * phi) / common_denom
+    if not return_dual:
+        return solution
+    else:
+        return solution, s
