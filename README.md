@@ -17,5 +17,5 @@ step_size = 1e-3
 reg_coef = 1e-5
 w = np.zeros(num_features) # the learned model weights
 for X, y in data_set:
-    w = prox_op(w, **poisson_params(step_size, X, y, reg_coef))
+    w = prox_op(w, *poisson_params(step_size, X, y, reg_coef))
 ```
